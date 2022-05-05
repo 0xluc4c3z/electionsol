@@ -7,7 +7,7 @@ async function main() {
 
   await election.deployed();
 
-  console.log("Election deployed to:", election.address);
+  console.log("Election deployed to: ", election.address);
 }
 
 

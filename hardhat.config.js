@@ -4,8 +4,6 @@ require("hardhat-gas-reporter");
 require("@nomiclabs/hardhat-etherscan");
 
 
-
-
 const projectId = process.env.INFURA_PROJECT_ID
 const privateKey = process.env.DEPLOYER_SIGNER_PRIVATE_KEY
 
