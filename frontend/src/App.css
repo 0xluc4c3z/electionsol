@@ -1,0 +1,165 @@
+.App {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+p{
+  font-size: 15px;
+}
+
+button{
+  font-size: 16px;
+}
+
+.table{
+  margin: auto;
+  width: 60%;
+}
+
+tr, th, td{
+  width: 25%;
+  text-align: center;
+  padding: 0.1em;
+}
+
+.container-user{
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-addr{
+  width: 20%;
+  height: 150px;
+  display: inline-block;
+}
+
+.input-addr{
+  margin-top: 25px;
+  padding: 3px;
+  width: 90%;
+}
+
+.btn-addr{
+  margin-top: 15px;
+}
+
+.container-burn{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.input-burn{
+  margin-top: 25px;
+  padding: 3px;
+  width: 90%;
+}
+
+.btn-burn{
+  margin-top: 15px;
+}
+
+.container-mint{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.btn-mint{
+  margin-top: 25px;
+  padding: 3px;
+}
+
+.container-vote{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.form-control{
+  margin-bottom: 15px;
+  padding: 3px;
+  width: 90%;
+}
+
+.details{
+  margin-top: 30px;
+  height: 150px;
+}
+
+.ntt-remaining{
+  margin-top: 28px;
+}
+
+.owner-fun{
+  margin-top: 30px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.transfer-owner{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.input-to{
+  margin-top: 25px;
+  padding: 3px;
+  width: 90%;
+}
+
+.btn-to{
+  margin-top: 15px;
+}
+
+.container-can{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.input-can{
+  margin-top: 25px;
+  padding: 3px;
+  width: 90%;
+}
+
+.btn-can{
+  margin-top: 15px;
+}
+
+.cont-se{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.btn-se{
+  margin: 60px auto;
+}
+
+.transfer-ntt{
+  display: inline-block;
+  width: 20%;
+  height: 150px;
+}
+
+.address-t{
+  margin-top: 25px;
+  padding: 3px;
+  width: 90%;
+}
+
+.amount-t{
+  margin-top: 10px;
+  padding: 3px;
+  width: 90%;
+}
+
+.btn-t{
+  margin-top: 15px;
+}

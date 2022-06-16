@@ -18,8 +18,8 @@ describe("Eleccion", function (){
     describe("Only owner", function () {
 
         it("Solo el owner puede agregar un candidato", async function () {
-            expect(await this.election.connect(owner).addCandidate("Macri"));
-            await expect(this.election.connect(user2).addCandidate("Massa")).to.be.reverted;
+            expect(await this.election.connect(owner).addCandidate("candidate1"));
+            await expect(this.election.connect(user2).addCandidate("candidate2")).to.be.reverted;
         });
 
         it("Solo el owner puede iniciar la eleccion", async function () {
@@ -44,8 +44,8 @@ describe("Eleccion", function (){
         it("Solo se permite votar una vez arrancada la funcion 'TimeElection'", async function (){
             expect(await this.election.connect(owner).transfer(user2.address, 10));
             expect(await this.election.connect(owner).transfer(user3.address, 1));
-            expect(await this.election.connect(owner).addCandidate("Candidato1"));
-            expect(await this.election.connect(owner).addCandidate("Candidato2"));
+            expect(await this.election.connect(owner).addCandidate("candidate1"));
+            expect(await this.election.connect(owner).addCandidate("candidate2"));
             expect(this.election.connect(user2).vote(1)).to.be.revertedWith('La votacion no ah comenzado/ ah terminado');
             expect(await this.election.connect(owner).timeElection());
             expect(await this.election.connect(user2).vote(1));

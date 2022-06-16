@@ -15,17 +15,17 @@ contract Election is NTT{
     }
 
     /** counter used to generate id to candidates **/
-    Counters.Counter s_idCandidate;
+    Counters.Counter public s_idCandidate;
     /** time indicating the moment when the election begins **/
-    uint256 s_timeStarted;
+    uint256 public s_timeStarted;
     /** address to which NTTs will be sent once the vote has been cast **/
-    address public s_VotesCompleted = 0x5dfFc7193E1aa005d4d856B50a3F7da1f07d30c6;
+    address public s_VotesCompleted = 0x6Fe19081876450c215439b1A174b5E63D37bDC5f;
     
     /** relationship between id and candidate structure **/
-    mapping(uint256 => Candidate) s_candidate;
+    mapping(uint256 => Candidate) public s_candidate;
     /** mapping that checks if an address has already cast its vote **/
     /** this allows an address to vote only once **/
-    mapping(address => bool) s_voters;
+    mapping(address => bool) public s_voters;
 
     error ElectionRevert(string message);
     event votedEvent(uint256 indexed _idCandidate);
@@ -39,7 +39,7 @@ contract Election is NTT{
     /** Function that adds candidates to the election  **/
     function addCandidate(string memory _name) public onlyOwner(){
         if (block.timestamp < s_timeStarted){
-            revert ElectionRevert("La votacion ah comenzado, no es posible agregar candidatos durante la misma");
+            revert ElectionRevert("Voting has started, it is not possible to add candidates during voting.");
         }
 
         s_idCandidate.increment();
@@ -53,26 +53,26 @@ contract Election is NTT{
     /** once started, it cannot be changed until it is completed  **/
     function timeElection() public onlyOwner(){
         if (block.timestamp < s_timeStarted){
-            revert ElectionRevert("La votacion ah comenzado, no es posible cambiar el tiempo hasta su finalizacion");
+            revert ElectionRevert("Voting has started, it is not possible to change the time until the end of the voting period.");
         }
 
-        s_timeStarted = block.timestamp + 1 days;
+        s_timeStarted = block.timestamp + 365 days;
     }
 
     /** function for a user to make a vote  **/ 
     /** a user can only vote once, and it must contain the NTT  **/ 
     function vote(uint256 _id) public{
         if (block.timestamp > s_timeStarted){
-            revert ElectionRevert("La votacion no ah comenzado/ ah terminado");
+            revert ElectionRevert("Voting has not started/is not over");
         }
         if (s_voters[msg.sender]){
-            revert ElectionRevert("Solo es posible votar una vez");
+            revert ElectionRevert("It is only possible to vote once");
         }
         if (1 > balanceOf(msg.sender)){
-            revert ElectionRevert("No cuenta con el NTT para votar");
+            revert ElectionRevert("Does not have the NTT to vote");
         }
         if (_id < 0 && _id > s_idCandidate.current()){
-            revert ElectionRevert("El id de candidato ingresado no es correcto");
+            revert ElectionRevert("The candidate id entered is not correct");
         }
 
         transferVotes(s_VotesCompleted, 1);
@@ -83,12 +83,4 @@ contract Election is NTT{
 
         emit votedEvent(_id);
     }
-
-    /** function that allows you to view information about the candidates  **/ 
-    function seeVotes(uint256 _id) public view returns(Candidate memory){
-        return s_candidate[_id];
-    }
-
-
-
 }

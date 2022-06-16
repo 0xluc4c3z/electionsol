@@ -4,9 +4,6 @@ pragma solidity ^0.8.0;
 /** NTT token interface **/
 interface INTT{
     
-    /** returns the number of tokens in stock **/
-    function totalSupply() external view returns(uint256);
-
     /** returns number of tokens for an address specified by parameter **/
     function balanceOf(address account) external view returns(uint256);
 
