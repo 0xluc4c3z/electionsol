@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { ConnectedUser } from './components/ConnectedUser'
 import { NotConnected } from './components/NotConnected'
+import ConnectedUser from './components/ConnectedUser'
 
 function App() {
   
@@ -16,7 +16,7 @@ function App() {
         <p className=''>{accounts}</p>
         <hr />
         {isConnected ?
-          (<ConnectedUser accounts={accounts}/>):
+          (<ConnectedUser accounts={accounts} />):
           (<NotConnected setAccounts={setAccounts} />)}
       </div>
     </div>
