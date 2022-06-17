@@ -146,3 +146,5 @@ export const ConnectedUser = ({ accounts }) => {
     </div>
   )
 }
+
+export default ConnectedUser
