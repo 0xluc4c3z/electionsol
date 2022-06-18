@@ -1,6 +1,6 @@
 import React from 'react'
 import { ethers } from 'ethers'
-import ElectionABI from '../../../artifacts/contracts/Election.sol/Election.json'
+import ElectionABI from '../web3/Electionsol.json'
 import { useState, useEffect } from 'react'
 import { ConnectedOwner } from './ConnectedOwner'
 
